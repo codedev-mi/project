@@ -1,0 +1,205 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Your Cart</title>
+  <script src="https://checkout.razorpay.com/v1/checkout.js"></script>
+  <style>
+    body {
+    font-family: 'Poppins', sans-serif;
+    text-align: center;
+    background-color: #FFFBDA;
+    }
+    h1 { color: crimson; font-size: 36px; margin-bottom: 10px; }
+    .cart-item {
+      background-color: #fff0f5;
+      border: 1px solid pink;
+      padding: 15px;
+      margin: 10px auto;
+      width: 50%;
+      border-radius: 8px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+    .cart-item button {
+      background-color: white;
+      color: red;
+      border: 1px solid red;
+      padding: 5px 10px;
+      cursor: pointer;
+      border-radius: 5px;
+    }
+    .total { font-size: 22px; font-weight: bold; margin-top: 20px; }
+    button.buy-now {
+      margin-top: 20px;
+      padding: 10px 25px;
+      font-size: 16px;
+      font-weight: bold;
+      background-color: #28a745;
+      color: white;
+      border: none;
+      border-radius: 8px;
+      cursor: pointer;
+    }
+    #receipt { margin-top: 30px; }
+    table {
+      margin: 0 auto;
+      border-collapse: collapse;
+      width: 60%;
+    }
+    table, th, td { border: 1px solid #ccc; padding: 8px; }
+    th { background-color: #f8f8f8; }
+    a {
+      display: inline-block;
+      margin-top: 20px;
+      background-color: #d40e3c;
+      color: white;
+      padding: 10px 20px;
+      text-decoration: none;
+      border-radius: 8px;
+    }
+    .cart-badge {
+      position: fixed;
+      top: 20px;
+      right: 20px;
+    }
+  </style>
+</head>
+<body>
+
+  <h1>Your Cart 🛒</h1>
+
+  <!-- Cart Badge -->
+  <div class="cart-badge">
+    <a href="cart.html">Cart 🛒<span id="cartCount">0</span></a>
+  </div>
+
+  <div id="cartContainer"></div>
+
+  <div class="total" id="totalDisplay">Total: ₹0.00</div>
+
+  <button class="buy-now" onclick="payNow()">Pay Now</button>
+
+  <div id="receipt" style="display: none;">
+    <h2>Receipt</h2>
+    <div id="receiptDetails"></div>
+  </div>
+
+  <a href="flavours.html">⬅️ Back to Menu</a>
+
+  <script>
+    // Load cart items from localStorage
+    let cartItems = JSON.parse(localStorage.getItem("cartItems")) || [];
+
+    function renderCart() {
+      const container = document.getElementById("cartContainer");
+      container.innerHTML = "";
+
+      if (cartItems.length === 0) {
+        container.innerHTML = "<p>Your cart is empty.</p>";
+        document.getElementById("totalDisplay").innerText = "Total: ₹0.00";
+        updateCartCount();
+        return;
+      }
+
+      cartItems.forEach((item, index) => {
+        const div = document.createElement("div");
+        div.className = "cart-item";
+        div.innerHTML = `
+          <span>${item.name} (x${item.quantity}) - ₹${item.price.toFixed(2)}</span>
+          <button onclick="removeItem(${index})">Remove</button>
+        `;
+        container.appendChild(div);
+      });
+
+      updateTotal();
+      updateCartCount();
+    }
+
+    function updateTotal() {
+      const total = cartItems.reduce((sum, item) => sum + item.price * item.quantity, 0);
+      document.getElementById("totalDisplay").innerText = `Total: ₹${total.toFixed(2)}`;
+    }
+
+    function removeItem(index) {
+      cartItems.splice(index, 1);
+      localStorage.setItem("cartItems", JSON.stringify(cartItems));
+      renderCart();
+    }
+
+    function payNow() {
+      if (cartItems.length === 0) {
+        alert("Your cart is empty!");
+        return;
+      }
+
+      const totalAmount = cartItems.reduce((sum, item) => sum + item.price * item.quantity, 0) * 100;
+
+      const options = {
+        key: "rzp_test_1DP5mmOlF5G5ag", // Replace with your Razorpay test key
+        amount: totalAmount,
+        currency: "INR",
+        name: "Frosty Delights",
+        description: "Ice Cream Purchase",
+        handler: function (response) {
+          alert("Payment successful! Payment ID: " + response.razorpay_payment_id);
+          generateReceipt();
+          cartItems = [];
+          localStorage.setItem("cartItems", JSON.stringify(cartItems));
+          renderCart();
+          updateCartCount();
+        },
+        prefill: {
+          name: "Customer Name",
+          email: "customer@example.com",
+          contact: "9999999999"
+        },
+        theme: {
+          color: "#3399cc"
+        }
+      };
+
+      const rzp = new Razorpay(options);
+      rzp.open();
+    }
+
+    function generateReceipt() {
+      const date = new Date();
+      const receiptDetails = document.getElementById("receiptDetails");
+      let total = 0;
+
+      let receiptHTML = `<p><strong>Date:</strong> ${date.toLocaleString()}</p>`;
+      receiptHTML += `<table>
+        <tr><th>Item</th><th>Quantity</th><th>Price</th></tr>`;
+
+      cartItems.forEach(item => {
+        total += item.price * item.quantity;
+        receiptHTML += `<tr>
+          <td>${item.name}</td>
+          <td>${item.quantity}</td>
+          <td>₹${item.price.toFixed(2)}</td>
+        </tr>`;
+      });
+
+      receiptHTML += `</table><h3>Total: ₹${total.toFixed(2)}</h3>`;
+      receiptDetails.innerHTML = receiptHTML;
+      document.getElementById("receipt").style.display = "block";
+    }
+
+    function updateCartCount() {
+      let cartItems = JSON.parse(localStorage.getItem("cartItems")) || [];
+      const count = cartItems.reduce((sum, item) => sum + item.quantity, 0);
+      const cartCountElement = document.getElementById("cartCount");
+      if (cartCountElement) {
+        cartCountElement.innerText = count;
+      }
+    }
+
+    // On page load
+    renderCart();
+    updateCartCount();
+  </script>
+
+</body>
+</html>
