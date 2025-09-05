@@ -1,0 +1,345 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Our Flavours - Frosty Delights</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<header>
+  <div class="logo">🍦 Frosty Delights</div>
+  <nav>
+    <a href="index.html">Home</a>
+    <a href="flavours.html">Flavors</a>
+    <a href="about.html">About</a>
+    <a href="contact.html">Contact</a>
+    <!-- <a href="book-table.html">Book Table</a> -->
+    <a href="cart.html">Cart 🛒<span id="cart-count" class="cart-count">0</span></a>
+    <button class="dark-toggle" onclick="toggleDarkMode()">🌓</button>
+  </nav>
+</header>
+
+  <section id="menu">
+    <div class="menu-container">
+      
+      <div class="menu-item" data-name="Strawberry Bliss" data-price="220">
+        <img src="flavors/strawberry.jpg" alt="Strawberry Bliss">
+        <h3>Strawberry Bliss 🍓</h3>
+        <p>Rich & creamy strawberry delight!</p>
+        <span>₹220</span>
+        <div class="menu-controls">
+          <label>Quantity:</label>
+          <input type="number" min="1" value="1" class="quantity-input" />
+          <button class="add-to-cart">Add to Cart</button>
+        </div>
+      </div>
+
+      <div class="menu-item" data-name="Choco Dream" data-price="200">
+        <img src="flavors/chocolate.jpg" alt="Choco Dream">
+        <h3>Choco Dream 🍫</h3>
+        <p>For the chocolate lovers!</p>
+        <span>₹200</span>
+        <div class="menu-controls">
+          <label>Quantity:</label>
+          <input type="number" min="1" value="1" class="quantity-input" />
+          <button class="add-to-cart">Add to Cart</button>
+        </div>
+      </div>
+
+      <div class="menu-item" data-name="Minty Fresh" data-price="190">
+        <img src="flavors/mint.jpg" alt="Minty Fresh">
+        <h3>Minty Fresh 🌱</h3>
+        <p>Cool & refreshing mint goodness!</p>
+        <span>₹190</span>
+        <div class="menu-controls">
+          <label>Quantity:</label>
+          <input type="number" min="1" value="1" class="quantity-input" />
+          <button class="add-to-cart">Add to Cart</button>
+        </div>
+      </div>
+
+      <div class="menu-item" data-name="Classic Vanilla" data-price="150">
+        <img src="flavors/vanilla.jpg" alt="Classic Vanilla">
+        <h3>Classic Vanilla 🍦</h3>
+        <p>Simple & creamy vanilla magic!</p>
+        <span>₹150</span>
+        <div class="menu-controls">
+          <label>Quantity:</label>
+          <input type="number" min="1" value="1" class="quantity-input" />
+          <button class="add-to-cart">Add to Cart</button>
+        </div>
+      </div>
+
+            <div class="menu-item" data-name="Blueberry Swirl" data-price="300">
+                <img src="flavors/berry.jpg" alt="Blueberry Ice Cream">
+                <h3>Blueberry Swirl 🧀</h3>
+                <p>Sweet & tangy berry burst!</p>
+                <span>₹300</span>
+                 <div class="menu-controls">
+                 <label>Quantity:</label>
+                 <input type="number" min="1" value="1" class="quantity-input" />
+                <button class="add-to-cart">Add to Cart</button>
+        </div>
+            </div>
+
+            <!-- Mango Tango -->
+            <div class="menu-item" data-name="Mango Tango" data-price="200">
+                <img src="flavors/mango.jpg" alt="Mango Ice Cream">
+                <h3>Mango Tango 🍍</h3>
+                <p>Tropical mango delight!</p>
+                <span>₹200</span>
+                 <div class="menu-controls">
+          <label>Quantity:</label>
+          <input type="number" min="1" value="1" class="quantity-input" />
+          <button class="add-to-cart">Add to Cart</button>
+        </div>
+            </div>
+
+            <!-- Cookies & Cream -->
+            <div class="menu-item" data-name="Cookies & Cream" data-price="190">
+                <img src="flavors/cookie.jpg" alt="Cookies & Cream Ice Cream">
+                <h3>Cookies & Cream 🍪</h3>
+                <p>Crunchy & creamy treat!</p>
+                <span>₹190</span>
+                 <div class="menu-controls">
+          <label>Quantity:</label>
+          <input type="number" min="1" value="1" class="quantity-input" />
+          <button class="add-to-cart">Add to Cart</button>
+        </div>
+            </div>
+
+            <!-- Pistachio Dream -->
+            <div class="menu-item" data-name="Pistachio Dream" data-price="290">
+                <img src="flavors/pistachio.jpg" alt="Pistachio Ice Cream">
+                <h3>Pistachio Dream 🌰</h3>
+                <p>Nutty & delicious!</p>
+                <span>₹290</span>
+                <div class="menu-controls">
+          <label>Quantity:</label>
+          <input type="number" min="1" value="1" class="quantity-input" />
+          <button class="add-to-cart">Add to Cart</button>
+        </div>
+            </div>
+
+            <!-- Caramel Crunch -->
+<div class="menu-item" data-name="Caramel Crunch" data-price="250">
+    <img src="flavors/caramel-crunch.jpg" alt="Caramel Ice Cream">
+    <h3>Caramel Crunch 🍯</h3>
+    <p>Buttery caramel with a crispy twist!</p>
+    <span>₹250</span>
+    <div class="menu-controls">
+          <label>Quantity:</label>
+          <input type="number" min="1" value="1" class="quantity-input" />
+          <button class="add-to-cart">Add to Cart</button>
+        </div>
+</div>
+
+<!-- Raspberry Ripple -->
+<div class="menu-item" data-name="Raspberry Ripple" data-price="220">
+    <img src="flavors/Raspberry.jpeg" alt="Raspberry Ice Cream">
+    <h3>Raspberry Ripple ❤️</h3>
+    <p>Tangy raspberry swirled with cream!</p>
+    <span>₹220</span>
+     <div class="menu-controls">
+          <label>Quantity:</label>
+          <input type="number" min="1" value="1" class="quantity-input" />
+          <button class="add-to-cart">Add to Cart</button>
+        </div>
+</div>
+
+<!-- Coffee Craze -->
+<div class="menu-item" data-name="Coffee Craze" data-price="240">
+    <img src="flavors/Coffee Craze.jpeg" alt="Coffee Ice Cream">
+    <h3>Coffee Craze ☕</h3>
+    <p>Bold & creamy coffee indulgence!</p>
+    <span>₹240</span>
+    <div class="menu-controls">
+          <label>Quantity:</label>
+          <input type="number" min="1" value="1" class="quantity-input" />
+          <button class="add-to-cart">Add to Cart</button>
+        </div>
+</div>
+
+<!-- Tropical Coconut -->
+<div class="menu-item" data-name="Tropical Coconut" data-price="180">
+    <img src="flavors/coconut.jpeg" alt="Coconut Ice Cream">
+    <h3>Tropical Coconut 🥥</h3>
+    <p>Exotic coconut cream delight!</p>
+    <span>₹180</span>
+    <div class="menu-controls">
+          <label>Quantity:</label>
+          <input type="number" min="1" value="1" class="quantity-input" />
+          <button class="add-to-cart">Add to Cart</button>
+        </div>
+</div>
+
+<!-- Lemon Zest -->
+<div class="menu-item" data-name="Lemon Zest" data-price="170">
+    <img src="flavors/lemon.jpeg" alt="Lemon Ice Cream">
+    <h3>Lemon Zest 🍋</h3>
+    <p>Bright & zesty citrus refreshment!</p>
+    <span>₹170</span>
+    <div class="menu-controls">
+          <label>Quantity:</label>
+          <input type="number" min="1" value="1" class="quantity-input" />
+          <button class="add-to-cart">Add to Cart</button>
+        </div>
+</div>
+
+<!-- Hazelnut Heaven -->
+<div class="menu-item" data-name="Hazelnut Heaven" data-price="300">
+    <img src="flavors/heaven.jpeg" alt="Hazelnut Ice Cream">
+    <h3>Hazelnut Heaven 🌰</h3>
+    <p>Creamy hazelnut !</p>
+    <span>₹300</span>
+     <div class="menu-controls">
+          <label>Quantity:</label>
+          <input type="number" min="1" value="1" class="quantity-input" />
+          <button class="add-to-cart">Add to Cart</button>
+        </div>
+</div>
+
+<!-- Black Forest Delight -->
+<div class="menu-item" data-name="Black Forest Delight" data-price="260">
+    <img src="flavors/blackforest.jpeg" alt="Black Forest Ice Cream">
+    <h3>Black Forest Delight 🍒</h3>
+    <p>Chocolate & whipped cream bliss!</p>
+    <span>₹260</span>
+     <div class="menu-controls">
+          <label>Quantity:</label>
+          <input type="number" min="1" value="1" class="quantity-input" />
+          <button class="add-to-cart">Add to Cart</button>
+        </div>
+</div>
+
+<!-- Butterscotch Bliss -->
+<div class="menu-item" data-name="Butterscotch Bliss" data-price="210">
+    <img src="flavors/butterscotch.jpeg" alt="Butterscotch Ice Cream">
+    <h3>Butterscotch Bliss 🧈</h3>
+    <p>Rich, buttery & utterly smooth!</p>
+    <span>₹210</span>
+    <div class="menu-controls">
+          <label>Quantity:</label>
+          <input type="number" min="1" value="1" class="quantity-input" />
+          <button class="add-to-cart">Add to Cart</button>
+        </div>
+</div>
+    </div>
+
+    <!-- Flavor Info Modal -->
+<div id="flavorModal" class="modal">
+  <div class="modal-content">
+    <span class="close">&times;</span>
+    <h2 id="flavorName"></h2>
+    <p><strong>Calories:</strong> <span id="flavorCalories"></span></p>
+    <h3>Ingredients:</h3>
+    <ul id="flavorIngredients"></ul>
+  </div>
+</div>
+
+  </section>
+
+<footer>
+  <p>&copy; 2025 Frosty Delights. Made with 🍦 & 💖!</p>
+</footer>
+
+<script>
+// Flavor info data
+const flavorDetails = {
+  "Strawberry Bliss": { calories: "220 kcal", ingredients: ["Strawberries", "Milk & Cream", "Sugar"] },
+  "Choco Dream": { calories: "200 kcal", ingredients: ["Cocoa", "Milk & Cream", "Sugar"] },
+  "Minty Fresh": { calories: "190 kcal", ingredients: ["Mint Extract", "Milk & Cream", "Sugar"] },
+  "Classic Vanilla": { calories: "150 kcal", ingredients: ["Vanilla Bean", "Milk & Cream", "Sugar"] },
+  "Blueberry Swirl": { calories: "300 kcal", ingredients: ["Blueberries", "Milk & Cream", "Sugar"] },
+  "Mango Tango": { calories: "200 kcal", ingredients: ["Mango Pulp", "Milk & Cream", "Sugar"] },
+  "Cookies & Cream": { calories: "190 kcal", ingredients: ["Cookies", "Milk & Cream", "Sugar"] },
+  "Pistachio Dream": { calories: "290 kcal", ingredients: ["Pistachios", "Milk & Cream", "Sugar"] },
+  "Caramel Crunch": { calories: "250 kcal", ingredients: ["Caramel", "Toffee Bits", "Milk & Cream"] },
+  "Raspberry Ripple": { calories: "220 kcal", ingredients: ["Raspberry Sauce", "Milk & Cream", "Sugar"] },
+  "Coffee Craze": { calories: "240 kcal", ingredients: ["Coffee Extract", "Milk & Cream", "Sugar"] },
+  "Tropical Coconut": { calories: "180 kcal", ingredients: ["Coconut Cream", "Milk", "Sugar"] },
+  "Lemon Zest": { calories: "170 kcal", ingredients: ["Lemon Juice", "Milk & Cream", "Sugar"] },
+  "Hazelnut Heaven": { calories: "300 kcal", ingredients: ["Hazelnuts", "Milk & Cream", "Sugar"] },
+  "Black Forest Delight": { calories: "260 kcal", ingredients: ["Chocolate Cake", "Cherries", "Cream"] },
+  "Butterscotch Bliss": { calories: "210 kcal", ingredients: ["Butterscotch Sauce", "Milk & Cream", "Sugar"] }
+};
+
+// Modal logic
+const modal = document.getElementById("flavorModal");
+const closeBtn = modal.querySelector(".close");
+const flavorName = document.getElementById("flavorName");
+const flavorCalories = document.getElementById("flavorCalories");
+const flavorIngredients = document.getElementById("flavorIngredients");
+
+// Open modal when clicking on menu item (but not Add to Cart / Quantity)
+document.querySelectorAll(".menu-item").forEach(item => {
+  item.addEventListener("click", e => {
+    if (!e.target.classList.contains("add-to-cart") &&
+        !e.target.classList.contains("quantity-input")) {
+      const name = item.getAttribute("data-name");
+      const details = flavorDetails[name];
+
+      if (details) {
+        flavorName.innerText = name;
+        flavorCalories.innerText = details.calories;
+        flavorIngredients.innerHTML = details.ingredients.map(i => `<li>${i}</li>`).join("");
+        modal.style.display = "block";
+      }
+    }
+  });
+});
+
+// Close modal
+closeBtn.onclick = () => { modal.style.display = "none"; };
+window.onclick = e => { if (e.target == modal) modal.style.display = "none"; };
+
+// Dark mode toggle
+function toggleDarkMode() {
+  document.body.classList.toggle('dark');
+}
+
+// Update cart count display
+function updateCartCount() {
+  let cartItems = JSON.parse(localStorage.getItem("cartItems")) || [];
+  const count = cartItems.reduce((sum, item) => sum + item.quantity, 0);
+  document.getElementById("cart-count").innerText = count;
+}
+
+// Add item to cart
+function addToCart(item, quantity) {
+  let cartItems = JSON.parse(localStorage.getItem("cartItems")) || [];
+
+  const existingIndex = cartItems.findIndex(i => i.name === item.name);
+  if (existingIndex !== -1) {
+    cartItems[existingIndex].quantity += quantity;
+  } else {
+    cartItems.push({ ...item, quantity: quantity });
+  }
+
+  localStorage.setItem("cartItems", JSON.stringify(cartItems));
+  alert(`${item.name} added to cart!`);
+  updateCartCount();
+}
+
+// Setup add-to-cart button click events
+document.addEventListener("DOMContentLoaded", () => {
+  document.querySelectorAll(".add-to-cart").forEach(button => {
+    button.addEventListener("click", e => {
+      const menuItem = e.target.closest(".menu-item");
+      const name = menuItem.getAttribute("data-name");
+      const price = parseFloat(menuItem.getAttribute("data-price"));
+      const quantityInput = menuItem.querySelector(".quantity-input");
+      const quantity = parseInt(quantityInput.value) || 1;
+
+      addToCart({ name, price }, quantity);
+    });
+  });
+
+  updateCartCount();
+});
+</script>
+
+</body>
+</html>
