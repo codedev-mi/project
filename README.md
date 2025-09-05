@@ -1,18 +1,13 @@
 # project
 🌟 Frosty Delights – Ice Cream Ordering Web Application
-Tech Stack: HTML, CSS, JavaScript
+Tech Stack: HTML, CSS, JavaScript, php, Mysql
 
 Description:
-Developed a fully functional and visually appealing web application for an ice cream parlor. The platform allows users to browse flavors, place orders via a cart system, and make table reservations. Integrated interactive UI elements and form validations to enhance user experience. Also implemented a secure admin login feature for backend management.
+Developed a fully functional and visually appealing web application for an ice cream parlor. The platform allows users to browse flavors, place orders via a cart system. Integrated interactive UI elements and form validations to enhance user experience. Also implemented a secure admin login feature for backend management.
 
 Key Features:
-
-Interactive flavor showcase with visual styling and animations
-
-Functional shopping cart system for selecting and reviewing orders
-
-Table reservation form with date/time input and validation
-
-Contact form for customer feedback and inquiries
-
-Admin login interface for protected access to backend features
+✅ Responsive UI with HTML, CSS, and JavaScript
+✅ User Registration & Login with secure password hashing
+✅ Admin Dashboard to manage orders & payments
+✅ Cart system with Razorpay payment integration
+✅ MySQL Database for handling users, orders & messages
